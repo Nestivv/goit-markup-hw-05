@@ -120,6 +120,7 @@ img {
 /* /задаем цвет ссылок на список страниц */
 .header .page-link {
   color: var(--text-main-primary);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* /цвет ссылок на телефо и почту в хедере */
@@ -164,6 +165,7 @@ img {
 .mail {
   display: flex;
   align-items: center;
+  fill: var(--text-main-secondary);
 
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -503,7 +505,8 @@ img {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-link:hover .floated-description {
+.portfolio-link:hover .floated-description,
+.portfolio-link:focus .floated-description {
   transform: translateY(0%);
 }
 
@@ -567,14 +570,16 @@ img {
   align-items: center;
   justify-content: center;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-social {
   display: block;
   width: 20px;
   height: 20px;
   fill: var(--svg-color);
+}
+.team .icon-social {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-customer {
@@ -618,8 +623,8 @@ img {
   background-color: var(--main-hover-color);
 }
 
-.social-link:hover .icon-social,
-.social-link:focus .icon-social {
+.team .social-link:hover .icon-social,
+.team .social-link:focus .icon-social {
   fill: var(--text-accent-secondary);
 }
 /* //modal window */
@@ -631,7 +636,8 @@ img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
@@ -652,6 +658,7 @@ img {
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .backdrop.is-hidden .modal {
